@@ -16,6 +16,7 @@ const noteCtrl = {
             const newNote = new Notes({
                 title,
                 content,
+                date,
                 user_id: req.user.id,
                 name: req.user.name
             })
