@@ -12,15 +12,13 @@ const noteCtrl = {
     createNote: async (req, res) => {
         try {
 
-            const { title, date, content } = req.body;
+            const { title, content } = req.body;
             const newNote = new Notes({
                 title,
                 content,
-                date,
                 user_id: req.user.id,
                 name: req.user.name
             })
-            console.log(newNote)
             await newNote.save()
             res.json({ msg: "Created a Note" })
         } catch (err) {
@@ -37,13 +35,14 @@ const noteCtrl = {
     },
     updateNote: async (req, res) => {
         try {
-            const { title, content, date } = req.body;
+            const { title, content } = req.body;
+            let date = Date.now();
             await Notes.findOneAndUpdate({ _id: req.params.id }, {
                 title,
                 content,
                 date
             })
-            res.json({ msg: "Updated a Note" })
+            res.json({ date, title })
         } catch (err) {
             return res.status(500).json({ msg: err.message })
         }

@@ -2,15 +2,15 @@ const mongoose = require('mongoose')
 
 
 const noteSchema = new mongoose.Schema({
-    title:{
+    title: {
         type: String,
         required: true
     },
-    content:{
+    content: {
         type: String,
         required: true
     },
-    date:{
+    date: {
         type: Date,
         default: Date.now
     },
@@ -18,11 +18,11 @@ const noteSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    name:{
+    name: {
         type: String,
         required: true
     }
-},{
+}, {
     timestamps: true
 })
 
