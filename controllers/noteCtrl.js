@@ -12,7 +12,7 @@ const noteCtrl = {
     createNote: async (req, res) => {
         try {
 
-            const { title, content } = req.body;
+            const { title, date, content } = req.body;
             const newNote = new Notes({
                 title,
                 content,
